@@ -4,6 +4,7 @@ import Header from "./components/Layout/Header";
 import AvailablePokemon from "./components/Pokemon/AvailablePokemon";
 import Pokemon from "./components/Pokemon/Pokemon";
 import PokemonSummary from "./components/Pokemon/PokemonSummary";
+import CartProvider from "./store/CartProvider";
 
 function App() {
 
@@ -18,13 +19,13 @@ function App() {
   };
 
   return (
-    <div>
+    <CartProvider>
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
         <Pokemon />
       </main>
-    </div>
+    </CartProvider>
   );
 }
 
