@@ -1,5 +1,5 @@
 .pokemon {
-    max-width: 60rem;
+    max-width: 80rem;
     width: 90%;
     margin: 2rem auto;
     animation: meals-appear 1s ease-out forwards;
@@ -14,7 +14,7 @@
 }
 
 li {
-    flex-basis: 33%;
+    flex-basis: 29%;
     text-align: center;
     margin-top: 30px;
 }
