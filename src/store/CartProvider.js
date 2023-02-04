@@ -42,7 +42,7 @@ const CartProvider = (props) => {
 
     return (
         <div>
-            <CartContext.Provider>
+            <CartContext.Provider value={cartContext}>
                 {props.children}
             </CartContext.Provider>
         </div>

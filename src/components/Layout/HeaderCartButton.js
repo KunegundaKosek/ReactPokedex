@@ -7,9 +7,11 @@ const HeaderCartButton = (props) => {
 
     const cartCtx = useContext(CartContext);
 
-    // const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
-    //     return curNumber + item.amount;
-    // }, 0);
+    const { items } = cartCtx;
+
+    const numberOfCartItems = items.reduce((curNumber, item) => {
+        return curNumber + item.amount;
+    }, 0);
 
     return (
         <button className={classes.button} onClick={props.onClick}>
@@ -20,7 +22,7 @@ const HeaderCartButton = (props) => {
             <span>Twój koszyk</span>
 
             <span className={classes.badge}>
-                {/* {numberOfCartItems} */}
+                {numberOfCartItems}
             </span>
         </button>
     );

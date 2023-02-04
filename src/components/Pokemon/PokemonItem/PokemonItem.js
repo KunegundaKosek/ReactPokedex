@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import CartContext from '../../../store/cart-context';
 import classes from './PokemonItem.module.css';
+import PokemonItemForm from './PokemonItemForm';
 
 const PokemonItem = (props) => {
 
-    const price = `${props.price.toFixed(2)}zł`
+    const cartCtx = useContext(CartContext);
 
+    const price = `${props.price.toFixed(2)}zł`;
+
+    const addToCartHandler = (amount) => {
+        cartCtx.addItem({
+            id: props.id,
+            name: props.name,
+            amount: amount,
+            price: props.price,
+        });
+    };
     return (
         <li className={classes.pokemon} key={props.id}>
             <div>
@@ -12,7 +24,9 @@ const PokemonItem = (props) => {
                 <p className={props.type}>{props.type}</p>
                 <img src={props.src} alt={props.name} />
                 <p className={props.price}>{price}</p>
+                <PokemonItemForm onAddToCart={addToCartHandler} />
             </div>
+
         </li>
     );
 };
