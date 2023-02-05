@@ -9,6 +9,7 @@ const AvailablePokemon = () => {
     const pokemonList = POKEMON_DATA.map((pokemon) => {
         return (
             <PokemonItem
+                key={pokemon.id}
                 id={pokemon.id}
                 name={pokemon.name}
                 type={pokemon.type}
